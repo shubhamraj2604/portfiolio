@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,18 +15,31 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
-      alert("Please fill out all fields before submitting.");
-      return;
-    }
-    alert("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
+    
+    // Google Form action URL
+    const formURL = "https://docs.google.com/forms/d/e/1FAIpQLScGTrRFQXI760Cbeb7AKd8bv_gMef7Kv9gmocXoeVMJlWW7pQ/formResponse";
+    
+    // Google Form Entry IDs (replace these with actual IDs)
+    const formEntries = new URLSearchParams();
+    formEntries.append("entry.890432005", formData.name);    // Name Field
+    formEntries.append("entry.500373926", formData.email);   // Email Field
+    formEntries.append("entry.1311731411", formData.message); // Message Field
+
+    // Submit form data to Google Form
+    fetch(formURL, {
+      method: "POST",
+      mode: "no-cors",
+      body: formEntries,
+    }).then(() => {
+      alert("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    });
   };
 
   return (
     <div id="contact" className="min-h-screen p-8 bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white">
       <div className="max-w-4xl mx-auto">
-        {/* Title with Animation */}
+        {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -102,11 +115,11 @@ const Contact = () => {
           </a>
         </div>
 
-        {/* Social Media Links with Hover Effects */}
+        {/* Social Media Links */}
         <motion.div
           className="mt-8 flex justify-center space-x-6 text-gray-400"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 2 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.5 }}
         >
           <a href="https://github.com/shubhamraj2604" target="_blank" rel="noopener noreferrer" className="hover:text-sky-300">
@@ -115,7 +128,6 @@ const Contact = () => {
           <a href="https://www.linkedin.com/in/shubham-raj26/" target="_blank" rel="noopener noreferrer" className="hover:text-sky-300">
             <FaLinkedin size={30} />
           </a>
-          
         </motion.div>
       </div>
     </div>

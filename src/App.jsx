@@ -7,6 +7,7 @@ import Project from "./Components/Project";
 import Sidebar from "./Components/Sidebar";
 import Skills from "./Components/skills";
 import Contact from "./Components/contact";
+import Achievements from "./Components/Achievements";
 function App() {
 
   return (
@@ -17,6 +18,7 @@ function App() {
        <About />
        <Education />
        <Project />
+        <Achievements />
        <Skills />
        <Contact />
 

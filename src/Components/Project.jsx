@@ -1,30 +1,70 @@
 import React from "react";
 import { motion } from "framer-motion";
-import project1 from "../assets/project1.jpg";
-import project2 from "../assets/project2.jpg";
+// import project1 from "../assets/project1.jpg";
+// import project2 from "../assets/project2.jpg";
+import EasyLearn from "../assets/easylearn.png";
+import product from "../assets/product.png";
+import todo from "../assets/todo.png";
+import usdata from "../assets/usdata.png";
+import casarthak from "../assets/casarthak.png";
 
 const Project = () => {
   const projects = [
     {
-      id: 1,
-      title: "Portfolio Website",
+      id: 3,
+      title: "Easy Learn - AI learning Management",
       description:
-        "I have built a personal portfolio using React.js and Tailwind CSS, featuring a sleek, responsive, and visually appealing design. It offers smooth navigation, optimized performance, and a modern user experience across all devices.",
-      image: project1,
-      link: "https://casarthakmodi.netlify.app/",
+        "An AI-driven LMS platform featuring dynamic course creation, automated notes and quiz generation with feedback, and flashcards. Implements secure authentication, background processing for AI tasks, and a scalable architecture with future cloud deployment in mind.",
+      image: EasyLearn,
+      link: "https://easy-learn-mg.vercel.app/",
+    },
+
+    {
+      id: 4,
+      title: "Nextonic Store - Ecommerce Store",
+      description:
+        "A responsive online store platform that delivers a smooth shopping experience with product browsing, filtering, secure login, and cart/checkout workflows, showcasing modern front-end development practices with React",
+      image: product,
+      link: "https://productstore-2-17ip.onrender.com/",
     },
     {
-      id: 2,
-      title: "WEATHER-APP",
+      id: 5,
+      title: "Data Science Jobs Analysis",
       description:
-        "I built a weather application using HTML, CSS, and JavaScript, integrating the OpenWeather API to provide accurate and real-time weather updates. The app allows users to search for any city and view essential weather details.",
-      image: project2,
-      link: "https://weather-app-bay-delta-80.vercel.app/",
+        "Performed an in-depth analysis of Data Science job trends using real job listings. Visualized key insights like skill demands, salary distributions, and location trends using Python and data visualization libraries to help understand the job market landscape.",
+      image: usdata,
+      link: "https://github.com/shubhamraj2604/Data_Science_Jobs_Analysis",
     },
+    {
+      id: 6,
+      title: "Todo List App",
+      description:
+        "Built a responsive Todo List application that allows users to add, delete, and edit tasks with real-time UI updates. Implemented clean state management and intuitive interactions for effective task tracking.",
+      image: todo,
+      link: "https://todolist-nc07.onrender.com/",
+    },
+
+    {
+      id: 7,
+      title: "Freelancing Portfolio – CA Sarthak Modi",
+      description:
+        "Designed and developed a professional freelancing portfolio for a Chartered Accountant using React.js and Tailwind CSS. The website showcases services, expertise, and contact details with a clean, responsive, and client-focused UI optimized for performance and accessibility.",
+      image: casarthak,
+      link: "https://casarthakmodi.netlify.app/",
+    },
+
+    // {
+    //   id: 2,
+    //   title: "WEATHER-APP",
+    //   description:
+    //     "I built a weather application using HTML, CSS, and JavaScript, integrating the OpenWeather API to provide accurate and real-time weather updates. The app allows users to search for any city and view essential weather details.",
+    //   image: project2,
+    //   link: "https://weather-app-bay-delta-80.vercel.app/",
+    // },
   ];
 
   return (
-    <motion.div 
+    <motion.div
       id="projects"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}

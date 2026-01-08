@@ -8,7 +8,7 @@ const Social = () => {
       id: 1,
       child: (
         <>
-          LinkedIn -
+          LinkedIn 
           <FaLinkedin size={30} />
         </>
       ),
@@ -19,7 +19,7 @@ const Social = () => {
       id: 2,
       child: (
         <>
-          Mail-
+          Mail
           <HiOutlineMail size={30} />
         </>
       ),
@@ -29,7 +29,7 @@ const Social = () => {
       id: 3,
       child: (
         <>
-          Github-
+          Github
           <FaGithub size={30} />
         </>
       ),

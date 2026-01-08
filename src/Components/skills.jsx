@@ -4,10 +4,10 @@ import {
   DiReact, 
   DiHtml5, 
   DiCss3, 
-  DiNodejs 
+  DiNodejs
 } from "react-icons/di";
 import { SiPython } from "react-icons/si";  
-import { SiExpress, SiMongodb, SiMysql, SiReact } from "react-icons/si";
+import { SiExpress, SiMongodb, SiMysql, SiReact ,  SiDocker  , SiNextdotjs, SiPandas } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -63,7 +63,24 @@ const Skills = () => {
         name: 'Python',
         icon: <SiPython size={120} color="#3776AB"  />
       },
-    
+      {
+        id: 10,
+        name: 'Docker',
+        icon: <SiDocker size={120} color="#2496ED"  />
+      },
+      {
+  id: 11,
+  name: 'Next.js',
+  icon: <SiNextdotjs size={120} color="white" />
+},
+{
+  id: 12,
+  name: 'Pandas',
+  icon: <SiPandas size={120} color="#150458" />
+},
+
+      
+      
 
   ];
 

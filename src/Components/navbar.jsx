@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { Link } from "react-scroll";
-
+import { motion } from "framer-motion";
 function Navbar() {
   const [nav, setNav] = useState(false);
+  const [select , selectedlink] = useState("home");
 
   const links = [
     { id: 1, link: "home" },
@@ -35,7 +36,7 @@ function Navbar() {
         {links.map(({ id, link }) => (
           <li
             key={id}
-            className="px-4 cursor-pointer capitalize font-medium text-sky-300 hover:scale-105 duration-200"
+            className={`px-4 py-2 cursor-pointer capitalize font-medium transition-all duration-300 relative group ${link == select ? "text-sky-400" : "text-gray-300 hover:text-sky-300" }`}
           >
             <Link
               to={link}
@@ -43,9 +44,21 @@ function Navbar() {
               duration={500}
               offset={-70}
               spy={true}
-              onClick={() => setNav(false)}
+              onSetActive={() => selectedlink(link)}
+              onClick={() => {setNav(false)}}
             >
               {link}
+               {select === link && (
+    <motion.span
+                  layoutId="activeSection"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-sky-400"
+                  initial={false}
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+)}
+
+               
+              <span className="absolute inset-0 bg-sky-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300" />
             </Link>
           </li>
         ))}
@@ -63,7 +76,11 @@ function Navbar() {
       {nav && (
         <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-black text-gray-500 lg:hidden">
           {links.map(({ id, link }) => (
-            <li key={id} className="px-4 cursor-pointer capitalize py-4 text-3xl">
+            <motion.li 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: -20 }}
+                transition={{ delay: id * 0.1 }}
+                key={id} className="px-4 cursor-pointer capitalize py-4 text-3xl">
               <Link
                 to={link}
                 smooth={true}
@@ -74,7 +91,7 @@ function Navbar() {
               >
                 {link}
               </Link>
-            </li>
+            </motion.li>
           ))}
 
           {/* Social Media Links */}

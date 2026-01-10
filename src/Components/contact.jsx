@@ -37,8 +37,8 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="min-h-screen p-8 bg-gradient-to-b from-gray-800 via-gray-900 to-black text-white">
-      <div className="max-w-4xl mx-auto">
+    <div id="contact" className="min-h-screen p-8 bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white">
+      <div className="max-w-5xl mx-auto">
         {/* Title */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}

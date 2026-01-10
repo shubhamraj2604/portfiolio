@@ -33,14 +33,14 @@ const Home = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center md:items-start text-center md:text-left"
         >
-          <h1 className="text-5xl md:text-6xl font-extrabold">
+          <h1 className="text-3xl md:text-4xl font-extrabold">
             Hello, I’m{' '}
             <span className="text-sky-500 font-sans">
               Shubham Raj
             </span>
           </h1>
 
-          <p className="text-2xl mt-4">
+          <p className="text-xl mt-4">
             <span className="text-gray-400 font-semibold">
               {lines[index]}
             </span>
@@ -55,9 +55,26 @@ const Home = () => {
           </p>
 
           {/* Tech Stack Line */}
-          <p className="text-sm text-gray-400 mt-4">
-            Tech Stack: <span className="text-white">React, Next.js, Node.js, PostgreSQL, Docker</span>
-          </p>
+           <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap gap-2 mt-4"
+          >
+            <span className="text-sm text-gray-400">Tech Stack:</span>
+            {["React", "Next.js", "Node.js", "PostgreSQL", "Docker"].map((tech, i) => (
+              <motion.span
+                key={tech}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.6 + i * 0.1 }}
+                className="px-1 py-1 text-xs bg-sky-500/20 text-sky-300 rounded-md border border-sky-500/30"
+              >
+                {tech}
+              </motion.span>
+            ))}
+          </motion.div>
+
 
           {/* CTA Buttons */}
           <div className="flex gap-4 mt-8">
@@ -89,7 +106,7 @@ const Home = () => {
           <img
             src={First}
             alt="Profile"
-            className="border-4 border-sky-500 rounded-2xl w-3/5 md:w-80 shadow-lg"
+            className="border-4 border-sky-500 rounded-2xl w-60  md:w-80 shadow-lg"
           />
         </motion.div>
       </div>

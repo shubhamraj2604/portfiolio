@@ -69,42 +69,77 @@ const Project = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="min-h-screen p-10 bg-gradient-to-b from-gray-800 via-gray-800 to-black text-white"
+      className="min-h-screen p-10 bg-gradient-to-b from-gray-800 via-gray-800 to-black text-white relative overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-sky-400 text-center md:text-left mb-12 border-b-4 border-white inline-block">
-          Projects
-        </h2>
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
 
-        <div className="flex flex-wrap justify-center gap-10 p-10">
-          {projects.map((project) => (
+      <div className="max-w-5xl mx-auto relative z-10">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl  md:text-4xl font-bold text-sky-400 text-center md:text-left mb-12 border-b-4 border-white inline-block pb-2"
+        >
+          Projects
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-4">
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: project.id * 0.2 }}
-              className="flex flex-col border-4 rounded-lg border-sky-400 bg-black w-80 md:w-96 transition-all duration-300 hover:animate-pulse"
+              initial={{ opacity: 0, y: 50, scale: 0.9 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="group relative flex flex-col border-2 rounded-xl border-sky-500/50 bg-gray-900/80 backdrop-blur-sm overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-sky-500/20 transition-all duration-300"
             >
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
+              {/* Image Container */}
+              <div className="relative overflow-hidden">
                 <motion.img
                   src={project.image}
                   alt={project.title}
-                  className="h-48 w-full object-cover rounded-t-lg"
+                  className="h-48 w-full object-cover"
                   whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.4 }}
                 />
-              </a>
+                {/* Overlay on hover */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
+                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent flex items-end justify-center pb-4"
+                >
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="px-6 py-2 bg-sky-500 text-white rounded-lg font-semibold hover:bg-sky-600 transition-colors"
+                  >
+                    View Project →
+                  </motion.a>
+                </motion.div>
+              </div>
 
-              <div className="border-b-2 border-white"></div>
-
-              <div className="p-4 text-white">
-                <h3 className="text-center text-2xl text-blue-400 font-extrabold">
+              {/* Content */}
+              <div className="p-5 flex-1 flex flex-col">
+                <h3 className="text-xl text-sky-400 font-bold mb-3 group-hover:text-sky-300 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-sm mt-2 text-gray-400">
+                <p className="text-sm text-gray-400 leading-relaxed flex-1">
                   {project.description}
                 </p>
+                
+                {/* Decorative line */}
+                <div className="mt-4 h-0.5 bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
               </div>
+
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-sky-500/0 via-sky-500/0 to-sky-500/0 group-hover:via-sky-500/10 group-hover:to-sky-500/20 transition-all duration-500 pointer-events-none rounded-xl" />
             </motion.div>
           ))}
         </div>

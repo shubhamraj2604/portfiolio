@@ -86,8 +86,8 @@ const Skills = () => {
 
   return (
     <div id="skills" 
-    className="min-h-screen p-10 text-white bg-gradient-to-b from-black via-gray-800 to-gray-800">
-      <div className="mx-auto max-w-4xl">
+    className="min-h-screen p-10 text-white bg-gradient-to-b from-gray-800 via-gray-800 to-black">
+      <div className="mx-auto max-w-5xl">
         <h2 className="text-4xl font-bold text-sky-400 text-center md:text-left mb-12 border-b-4 border-white inline-block">
           SKILLS
         </h2>

@@ -24,8 +24,6 @@ A modern, responsive portfolio website built with React and Vite, featuring smoo
 - **Framer Motion** - Animation library
 - **React Icons** - Icon library
 - **React Scroll** - Smooth scrolling
-- **Three.js** - 3D graphics (if used)
-- **Axios** - HTTP client
 
 ## 📋 Prerequisites
 

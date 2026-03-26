@@ -1,7 +1,6 @@
-import React from "react";
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
-import { BsFillPersonLinesFill } from "react-icons/bs";
+
 const Social = () => {
   const links = [
     {
@@ -34,32 +33,30 @@ const Social = () => {
         </>
       ),
       href: "https://github.com/shubhamraj2604",
-      style:"rounded-br-md"
+      style: "rounded-br-xl"
     },
   ];
 
   return (
-    <div className="hidden lg:flex flex-col top-[35%] left-0 fixed ">
+    <div className="fixed left-0 top-[35%] hidden flex-col lg:flex">
       <ul>
         {links.map(({ id, child, href, style, download }) => (
           <li
             key={id}
-            className={
-              "flex justify-between items-center w-40 h-14 px-4  ml-[-100px] hover:rounded-md duration-300 hover:ml-[-10px] bg-gray-500 bg-transparent "+ style
-            }
+            className={"ml-[-108px] flex h-14 w-44 items-center justify-between bg-slate-900/90 px-4 text-slate-100 shadow-lg shadow-cyan-950/40 backdrop-blur transition-all duration-300 hover:ml-[-8px] hover:bg-cyan-500/80 " + style}
           >
             <a
               href={href}
-              className="flex justify-between items-center w-full text-white ml-1"
+              className="ml-1 flex w-full items-center justify-between"
               download={download}
               target="_blank"
+              rel="noreferrer"
             >
               {child}
             </a>
           </li>
         ))}
       </ul>
-      l
     </div>
   );
 };

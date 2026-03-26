@@ -11,7 +11,9 @@ const About = () => {
         <div className="mb-12 text-center md:text-left">
           <span className="section-kicker">Who I am</span>
           <h2 className="section-title">
-            About Me
+            <span className="m-6">
+              About Me
+              </span>
           </h2>
           <p className="mt-3 max-w-2xl text-base md:text-lg">
             A developer focused on building meaningful digital experiences with

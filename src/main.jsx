@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client' // Corrected import statement
 import './index.css'
 import App from './App.jsx'

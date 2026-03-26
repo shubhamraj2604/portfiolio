@@ -15,7 +15,7 @@ const Education = () => {
       heading: "Higher Secondary",
       schoolName: "Sapphire International School, Noida",
       marks: 92.5,
-      passingYear: 2023,
+      passingYear: 2022,
       degree: "Class 12",
       board: "CBSE",
       icon: "📚",

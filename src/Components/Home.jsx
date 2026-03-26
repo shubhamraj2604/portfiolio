@@ -127,9 +127,9 @@ const Home = () => {
 
             <div className="absolute bottom-5 left-5 rounded-xl border border-cyan-200/20 bg-slate-950/70 px-4 py-3 backdrop-blur-md">
               <p className="text-xs uppercase tracking-[0.25em] text-cyan-200">Current Focus</p>
-              <p className="mt-1 text-sm font-semibold text-slate-100">Full-Stack Product Engineering</p>
+              <p className="mt-1 text-sm font-semibold text-slate-100">Full-Stack Developer </p>
             </div>
-          </div>
+          </div> 
 
           <motion.div
             animate={{ y: [-4, 8, -4] }}
